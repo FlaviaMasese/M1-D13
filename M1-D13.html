@@ -83,23 +83,41 @@ The user should be able to see the list of tasks, add new ones, delete existing 
               - Use the document.createElement to create the new List Item
               - Append the LI child to the UL
           */
-        let list =[];
-        function AddItem(){
-          let item = document.getElementById('newTask').value;
-          
-        }
+          const AddNewTask = function(){
+            let a = document.getElementById("newTask");
+            let value = a.value;
+            if (value !== "") {
+              itemarray.push({item: value});
+              AddItem();
+              a.value="";
+            }
+          };
+          const AddItem = function(){
+            let ul = document.getElementById("myTaskList");
+            let li = document.createElement("li");
+            itemarray.map((obj)=> {
+              li.innerHTML = obj.item;
+            });
+            ul.appendChild(li);
+          }
 
     /* EXERCISE 6:
               Create a function "removeLast" which removes the last item from the task list
           */
-        function removeLast() {
-          onclick('Remove Last Task')
+        const removeLast = function() {
+          itemarray.pop();
+        let ul = document.getElementById("myTaskList");
+        ul.removeChild(ul.lastElementChild);
 
-        }
+        };
 
     /* EXERCISE 7:
               Create a function "removeFirst" which removes the first item from the task list
           */
+          const removeFirst = function() {
+            let 
+          }
+          
 
     /* EXERCISE 8:
              Create a function "getTasksAsArray" which returns, and prints to the console an array containing the tasks as strings
@@ -109,6 +127,18 @@ The user should be able to see the list of tasks, add new ones, delete existing 
              Create a function "changeTaskBackgroundColor" and attach it to the "Change task background" button via JavaScript (not via html attribute)
              Take the color from the color picker ad apply it as background to every list item
     */
+         const addNumberToResult = function(event){
+            let changes = document.getElementById('colorPicker').value;
+          const Li = document.querySelectorAll('li');
+        for (let i =0; i < li.length; i++){
+          console.log(li.innerText);
+          Li[i].style.backgroungColor=changes
+        } 
+      };
+       const changeTaskBackgroundColor= function(){
+        const buttonChange = document.addEventListener('click', addNumberToResult);
+       };
+       changeTaskBackgroundColor();
 
     /* ### EXTRA ### */
 
